@@ -53,34 +53,30 @@
   </dependencies>
   
    <build>
+   
+   <sourceDirectory>src/main/scala</sourceDirectory>
     <plugins>
  <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-assembly-plugin</artifactId>
-    <version>2.2-beta-5</version>
-    <configuration>
-      <descriptorRefs>
-        <descriptorRef>jar-with-dependencies</descriptorRef>
-      </descriptorRefs>
-      <archive>
-        <manifest>
-          <mainClass>testlog4j.log4j_file_1</mainClass>
-        </manifest>
-      </archive>
-    </configuration>
+    <groupId>org.scala-tools</groupId>
+    <artifactId>maven-scala-plugin</artifactId>
+    <version>2.11</version>
+
     <executions>
       <execution>
-        <phase>package</phase>
+
         <goals>
-          <goal>single</goal>
+          <goal>compile</goal>
         </goals>
       </execution>
     </executions>
+    <configuration>
+    <sourceDir>src/main/scala</sourceDir>
+    </configuration>
   </plugin>
 
 
    </plugins>
-   <sourceDirectory>src/main/scala</sourceDirectory>
+
    
   </build>
 </project>
