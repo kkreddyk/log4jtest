@@ -66,7 +66,9 @@ object log4jworking {
 	  logger.warn("This is warn message");
 	  logger.fatal("This is fatal message");
 	  logger.error("This is error message");
-	  println("log level:::::"+ logger.getLevel)
+	  
+
+	  println("log level:::::"+ logger.getEffectiveLevel)
 	  
 
 	  Logger.getLogger("org").setLevel(Level.OFF)
@@ -75,10 +77,15 @@ object log4jworking {
 	  
 	  logger.info("Testing logger INFO")
 	  
-	  val spark12=SparkSession.builder().master("local[*]").getOrCreate()
+	   logger.info("----------"+Logger.getRootLogger)
+	   
+	  val spark=SparkSession.builder().master("local[*]").getOrCreate()
 	  
+	  
+	    //spark.sparkContext.setLogLevel("DEBUG")
+
 	  //spark.sql("select * from a").show(false)
-	  spark12.conf.getAll.foreach(println)
+	  spark.conf.getAll.foreach(println)
 	  
   }
 }
