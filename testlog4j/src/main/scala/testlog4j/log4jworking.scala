@@ -8,6 +8,8 @@ import org.apache.log4j.Level
 import java.text.SimpleDateFormat
 import java.util.Date
 
+import org.apache.spark.sql.SparkSession
+
 object log4jworking {
   
   
@@ -15,6 +17,8 @@ object log4jworking {
     
     println("Testing log4j")
     
+     //val spark=SparkSession.builder().master("local[*]").getOrCreate()
+	 //spark.conf.getAll.foreach(println)
     val logger: Logger = LogManager.getLogger(this.getClass.getName)
     
      val dateFormat: SimpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
@@ -23,14 +27,45 @@ object log4jworking {
     PropertyConfigurator.configure(args(0))
      logger.info("Logger : Welcome to log4j::"+this.getClass.getName)
 
-     logger.setLevel(Level.DEBUG)
-     logger.setLevel(Level.INFO)
+     //logger.setLevel(Level.DEBUG)
+     //logger.setLevel(Level.INFO)
+    
 	  logger.debug("This is debug message");
 	  logger.info("This is info message");
 	  logger.warn("This is warn message");
 	  logger.fatal("This is fatal message");
 	  logger.error("This is error message");
 	    logger.error("======");
+	    
+	    logger.debug("This is debug message");
+	  logger.info("This is info message");
+	  logger.warn("This is warn message");
+	  logger.fatal("This is fatal message");
+	  logger.error("This is error message");
+	  
+	  logger.debug("This is debug message");
+	  logger.info("This is info message");
+	  logger.warn("This is warn message");
+	  logger.fatal("This is fatal message");
+	  logger.error("This is error message");
+	  
+	  logger.debug("This is debug message");
+	  logger.info("This is info message");
+	  logger.warn("This is warn message");
+	  logger.fatal("This is fatal message");
+	  logger.error("This is error message");
+	  
+	  logger.debug("This is debug message");
+	  logger.info("This is info message");
+	  logger.warn("This is warn message");
+	  logger.fatal("This is fatal message");
+	  logger.error("This is error message");
+	  
+	  logger.debug("This is debug message");
+	  logger.info("This is info message");
+	  logger.warn("This is warn message");
+	  logger.fatal("This is fatal message");
+	  logger.error("This is error message");
 	  println("log level:::::"+ logger.getLevel)
 	  
 
@@ -39,6 +74,11 @@ object log4jworking {
 	  Logger.getLogger("akka").setLevel(Level.OFF)
 	  
 	  logger.info("Testing logger INFO")
+	  
+	  val spark12=SparkSession.builder().master("local[*]").getOrCreate()
+	  
+	  //spark.sql("select * from a").show(false)
+	  spark12.conf.getAll.foreach(println)
 	  
   }
 }
