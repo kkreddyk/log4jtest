@@ -18,7 +18,7 @@ object log4jworking {
     val logger: Logger = LogManager.getLogger(this.getClass.getName)
     
      val dateFormat: SimpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
-    System.setProperty("current.date.time", dateFormat.format(new Date()));
+    System.setProperty("log4j.current.date.time", dateFormat.format(new Date()));
     
     PropertyConfigurator.configure(args(0))
      logger.info("Logger : Welcome to log4j::"+this.getClass.getName)
