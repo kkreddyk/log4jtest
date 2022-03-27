@@ -5,6 +5,9 @@ import org.apache.log4j.Logger
 import org.apache.log4j.PropertyConfigurator
 import org.apache.log4j.Level
 
+import java.text.SimpleDateFormat
+import java.util.Date
+
 object log4jworking {
   
   
@@ -13,6 +16,9 @@ object log4jworking {
     println("Testing log4j")
     
     val logger: Logger = LogManager.getLogger(this.getClass.getName)
+    
+     val dateFormat: SimpleDateFormat = new SimpleDateFormat("dd-MM-yyyy-hh-mm-ss");
+    System.setProperty("current.date.time", dateFormat.format(new Date()));
     
     PropertyConfigurator.configure(args(0))
      logger.info("Logger : Welcome to log4j::"+this.getClass.getName)
