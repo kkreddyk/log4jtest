@@ -2,7 +2,7 @@ package testlog4j
 
 
 import org.apache.spark.sql.SparkSession
-
+import java.util.Properties;
 object jdbc {
   
   
@@ -26,5 +26,14 @@ val jdbcDF = spark.read
   
   jdbcDF.show(false)
    
+  
+  val connectionProperties = new Properties()
+connectionProperties.put("user", "postgres")
+connectionProperties.put("password", "postgres")
+
+
+val jdbcDF2 = spark.read.jdbc("jdbc:postgresql://localhost:5432/postgres","public.t1",connectionProperties)
+ 
+jdbcDF2.show(false)
  }
 }
