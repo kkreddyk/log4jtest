@@ -17,14 +17,17 @@ object log4jworking {
     PropertyConfigurator.configure(args(0))
      logger.info("Logger : Welcome to log4j::"+this.getClass.getName)
 
+     logger.setLevel(Level.DEBUG)
+     logger.setLevel(Level.INFO)
 	  logger.debug("This is debug message");
 	  logger.info("This is info message");
 	  logger.warn("This is warn message");
 	  logger.fatal("This is fatal message");
 	  logger.error("This is error message");
 	    logger.error("======");
-	  println("log level:::::"+ logger.getLevel())
+	  println("log level:::::"+ logger.getLevel)
 	  
+
 	  Logger.getLogger("org").setLevel(Level.OFF)
     
 	  Logger.getLogger("akka").setLevel(Level.OFF)
