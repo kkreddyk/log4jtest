@@ -56,6 +56,7 @@ val query="(select count(*) as cnt from public.t1 )q"
 val jdbcDF2 = spark.read.jdbc("jdbc:postgresql://localhost:5432/postgres",query,connectionProperties)
  
 
+//Thread.sleep(100000)
 jdbcDF2.show(false)
 
 val target_table="public.t2"
